@@ -29,28 +29,28 @@ public class Task5String {
         return true;
     }
 
-    private static boolean isomorphicNumbers(String s, String t){
-        if(s.length() != t.length()) {
+    private static boolean isomorphicNumbers(String s, String t) {
+        if (s.length() != t.length()) {
             return false;
         }
 
         HashMap<Character, Character> s_map = new HashMap();
         HashMap<Character, Character> t_map = new HashMap();
 
-        for (int i = 0; i < s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             char char_s = s.charAt(i);
             char char_t = t.charAt(i);
 
-            if(s_map.containsKey(char_s)){
-                if(s_map.get(char_s) != char_t){
-                   return false;
+            if (s_map.containsKey(char_s)) {
+                if (s_map.get(char_s) != char_t) {
+                    return false;
                 }
             } else {
                 s_map.put(char_s, char_t);
             }
 
-            if(t_map.containsKey(char_t)) {
-                if(t_map.get(char_t) != char_s){
+            if (t_map.containsKey(char_t)) {
+                if (t_map.get(char_t) != char_s) {
                     return false;
                 }
             } else {
@@ -60,9 +60,9 @@ public class Task5String {
         return true;
     }
 
-    private static int[] toInteger(String s){
+    private static int[] toInteger(String s) {
         int[] arr = new int[s.length()];
-        for(int i = 0; i < s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             char char_s = s.charAt(i);
             int int_s = Integer.parseInt(String.valueOf(char_s));
             arr[i] = int_s;
