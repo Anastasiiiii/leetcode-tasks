@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class RomanToInteger {
     public static void main(String[] args) {
@@ -17,6 +15,7 @@ public class RomanToInteger {
         HashMap<String, Integer> table = new HashMap<>();
         ArrayList<String> stringParts = new ArrayList<>();
         int num = 0;
+        //Adding elements to the table
         table.put("I", 1);
         table.put("V", 5);
         table.put("X", 10);
@@ -31,6 +30,7 @@ public class RomanToInteger {
         table.put("CD", 400);
         table.put("CM", 900);
 
+        //checking if the string has romans combinations; adding combinations or separate parts into the arrayList
         for (int i = 0; i < s.length(); i++) {
             if(i+1 < s.length()) {
                 String combination = s.substring(i, i+2);
@@ -46,19 +46,14 @@ public class RomanToInteger {
         }
         System.out.println(stringParts);
 
-        for(String part : stringParts){
-            if(table.containsKey(part)){
+        //convert into integer
+        for(String part : stringParts) {
+            if (table.containsKey(part)) {
                 num += table.get(part);
             } else {
-//                String[] subStr = part.split("");
-//                if(table.containsKey(subStr[0]) || table.containsKey(subStr[1])){
-//                    num += table.get(subStr[0]);
-//                    num += table.get(subStr[1]);
-//                } else {
-                    System.out.println("Error");
-                }
+                System.out.println("Error");
             }
-        //}
+        }
         return num;
     }
 }
