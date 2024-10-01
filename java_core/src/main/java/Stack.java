@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Stack {
+public class Stack<C> {
     private int[] stack;
     private int first;
     private int capacity;

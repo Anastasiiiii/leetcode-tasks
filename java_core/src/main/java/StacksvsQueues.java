@@ -1,7 +1,7 @@
 public class StacksvsQueues {
     public static void main (String[] args){
         //STACK
-        Stack stack = new Stack(6);
+        Stack<Integer> stack = new Stack<Integer>(6);
         stack.insertElement(5);
         stack.insertElement(6);
         stack.insertElement(8);
