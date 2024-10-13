@@ -1,9 +1,6 @@
 package HashTable;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Duplicates {
     public static void main(String[] args) {
@@ -31,6 +28,15 @@ public class Duplicates {
         System.out.println(containsNearbyAlmostDuplicate(nums, indexDiff, valueDiff));
         System.out.println(containsNearbyAlmostDuplicate(nums4, indexDiff1, valueDiff1));
         System.out.println(containsNearbyAlmostDuplicate(nums5, indexDiff2, valueDiff1));
+        System.out.println("************************************");
+        System.out.println(containsNearbyAlmostDuplicate2(nums, indexDiff, valueDiff));
+        System.out.println(containsNearbyAlmostDuplicate2(nums4, indexDiff1, valueDiff1));
+        System.out.println(containsNearbyAlmostDuplicate2(nums5, indexDiff2, valueDiff1));
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            list.add(i);
+        }
+        System.out.println(Math.random());
     }
 
     public static boolean containsDuplicate(int[] nums) {
@@ -107,6 +113,23 @@ public class Duplicates {
             map.put(nums[i], i);
         }
 
+        return false;
+    }
+
+    public static boolean containsNearbyAlmostDuplicate2(int[] nums, int indexDiff, int valueDiff) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (i != j) {
+                    int m = Math.abs(i - j);
+                    if (m <= indexDiff) {
+                        int k = Math.abs(nums[i] - nums[j]);
+                        if (k <= valueDiff) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
         return false;
     }
 }
