@@ -1,4 +1,4 @@
-package Tasks;
+package String;
 
 import java.util.HashMap;
 import java.util.Stack;
