@@ -66,7 +66,6 @@ public class TripleSum {
                 }
             }
         }
-
         return numbers;
     }
 }
