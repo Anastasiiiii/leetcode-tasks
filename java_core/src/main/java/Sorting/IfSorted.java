@@ -6,9 +6,6 @@ public class IfSorted {
     public static void main(String[] args) {
         int[] nums = {8, 4, 2, 30, 15};
         int[] nums2 = {20, 16};
-        System.out.println("Original Array: " + Arrays.toString(nums));
-        sortArray(nums);
-        System.out.println("\nSorted Array: " + Arrays.toString(nums));
 
         System.out.println("*********************************");
         System.out.println(canSortArray(nums));
@@ -30,6 +27,18 @@ public class IfSorted {
         System.out.println("*****************************************");
         int[] arr2 = {136, 256, 10};
         System.out.println(canSortArray(arr2));
+
+        System.out.println("****************************************");
+        int[] arr3 = {11, 174, 254, 251};
+        System.out.println(canSortArray(arr3));
+
+        System.out.println("******************************************");
+        int[] arr4 = {5, 3, 8};
+        System.out.println(canSortArray(arr4));
+
+        System.out.println("******************************************");
+        int[] arr5 = {174, 175, 234, 188};
+        System.out.println(canSortArray(arr5));
     }
 
     /*You are given a 0-indexed array of positive integers nums.
@@ -37,69 +46,151 @@ public class IfSorted {
     You are allowed to do this operation any number of times (including zero).
     Return true if you can sort the array, else return false.*/
 
-    private static int[] sortArray(int[] nums) {
-        int l = nums.length;
-        for (int gap = l / 2; gap > 0; gap /= 2) {
-            for (int i = gap; i < l; i++) {
-                int temp = nums[i];
-                int j;
-                for (j = i; j >= gap && nums[j - gap] > temp; j -= gap) {
-                    nums[j] = nums[j - gap];
-                }
-                nums[j] = temp;
-            }
-        }
-        //System.out.println(Arrays.toString(nums));
-//        for (int i = 0; i < nums.length; i++) {
-//            //to convert an Integer to a binary string representative
-//            System.out.println(Integer.bitCount(nums[i]));
-//
+//    public static boolean canSortArray(int[] nums) {
+//        // Перевірка, чи масив вже відсортований
+//        boolean isSorted = true;
+//        for (int i = 0; i < nums.length - 1; i++) {
+//            if (nums[i] > nums[i + 1]) {
+//                isSorted = false;
+//                break;
+//            }
 //        }
-        return nums;
-    }
+//        if (isSorted) return true;
+//
+//        System.out.println(Arrays.toString(nums));
+//
+//        // Групування елементів за кількістю одиниць у бітовому поданні
+//        Map<Integer, List<Integer>> bitCountGroups = new LinkedHashMap<>();
+//        List<Integer> currentGroup = null;
+//        LinkedList<Integer> sortedNumbers = new LinkedList<>();
+//        int previousBitCount = -1;
+//
+//        int n = 0;
+//        while (n < nums.length - 1 && nums[n] <= nums[n + 1]){
+//            sortedNumbers.add(nums[n]);
+//            n++;
+//        }
+//        //sortedNumbers.add(nums[n]);
+//
+//        for (int i = n+1; i < nums.length; i++) {
+//                int bitCount = Integer.bitCount(nums[i]);
+//
+//                if (bitCount == previousBitCount) {
+//                    currentGroup.add(nums[i]);
+//                } else {
+//                    if (currentGroup != null) {
+//                        bitCountGroups.put(previousBitCount, currentGroup);
+//                    }
+//                    currentGroup = new ArrayList<>();
+//                    currentGroup.add(nums[i]);
+//                }
+//                previousBitCount = bitCount;
+//        }
+//
+//        if (currentGroup != null) {
+//            bitCountGroups.put(previousBitCount, currentGroup);
+//        }
+//
+//        System.out.println("Already sorted numbers: " + sortedNumbers);
+//        System.out.println("Bit count groups: " + bitCountGroups);
+//
+//        // Сортування кожної групи окремо
+//        for (List<Integer> group : bitCountGroups.values()) {
+//            Collections.sort(group);
+//        }
+//
+//        System.out.println("Sorted bit count groups: " + bitCountGroups);
+//        // Відновлення масиву шляхом об'єднання відсортованих груп
+//        int[] reconstructedArray = new int[nums.length];
+//        int index = 0;
+//
+//        if (!sortedNumbers.isEmpty()) {
+//            for (int num : sortedNumbers) {
+//                reconstructedArray[index++] = num;
+//            }
+//        }
+//
+//        for (List<Integer> group : bitCountGroups.values()) {
+//            for (int num : group) {
+//                reconstructedArray[index++] = num;
+//            }
+//        }
+//
+//        System.out.println(Arrays.toString(reconstructedArray));
+//        // Перевірка, чи збігається відновлений масив з відсортованою копією
+//        int[] sortedArray = nums.clone();
+//        Arrays.sort(sortedArray);
+//
+//        // Порівняння відновленого масиву з відсортованим
+//        return Arrays.equals(reconstructedArray, sortedArray);
+//    }
 
-    private static boolean canSortArray(int[] nums) {
+    public static boolean canSortArray(int[] nums) {
+        // Перевірка, чи масив вже відсортований
         boolean isSorted = true;
         for (int i = 0; i < nums.length - 1; i++) {
-            if(nums[i] > nums[i + 1]){
+            if (nums[i] > nums[i + 1]) {
                 isSorted = false;
                 break;
             }
         }
-        if(isSorted) return true;
+        if (isSorted) return true;
 
-        //Group elements by their set bit count
-        Map<Integer, List<Integer>> bitCountGroups = new LinkedHashMap<>();
-        for(int num : nums) {
-            int bitCount = Integer.bitCount(num);
-            bitCountGroups.computeIfAbsent(bitCount, k -> new ArrayList<>()).add(num);
+        System.out.println("Original array: " + Arrays.toString(nums));
+
+        // Знаходимо найдовший відсортований префікс
+        LinkedList<Integer> sortedNumbers = new LinkedList<>();
+        int i = 0;
+        while (i < nums.length - 1 && nums[i] <= nums[i + 1]) {
+            sortedNumbers.add(nums[i]);
+            i++;
         }
-        System.out.println(bitCountGroups);
+        sortedNumbers.add(nums[i]);  // Додаємо останній елемент префіксу
 
-        //Sort each group individually
-        for(List<Integer> group : bitCountGroups.values()){
+        // Групування решти елементів за кількістю одиниць у бітовому поданні
+        Map<Integer, List<Integer>> bitCountGroups = new LinkedHashMap<>();
+        for (int j = i + 1; j < nums.length; j++) {
+            int bitCount = Integer.bitCount(nums[j]);
+            bitCountGroups.computeIfAbsent(bitCount, k -> new ArrayList<>()).add(nums[j]);
+        }
+
+        System.out.println("Already sorted numbers: " + sortedNumbers);
+        System.out.println("Bit count groups: " + bitCountGroups);
+
+        // Сортування кожної групи окремо
+        for (List<Integer> group : bitCountGroups.values()) {
             Collections.sort(group);
         }
 
-        System.out.println(bitCountGroups);
+        System.out.println("Sorted bit count groups: " + bitCountGroups);
 
-        //Reconstruct the array by merging sorted groups
+        // Відновлення масиву шляхом об'єднання відсортованих груп
         int[] reconstructedArray = new int[nums.length];
         int index = 0;
-        for(List<Integer> group : bitCountGroups.values()){
-            for (int num : group){
+
+        // Додаємо відсортований префікс на початок reconstructedArray
+        for (int num : sortedNumbers) {
+            reconstructedArray[index++] = num;
+        }
+
+        // Додаємо відсортовані групи за кількістю одиниць
+        for (List<Integer> group : bitCountGroups.values()) {
+            for (int num : group) {
                 reconstructedArray[index++] = num;
             }
         }
 
+        // Перевірка, чи збігається відновлений масив з відсортованою копією
         int[] sortedArray = nums.clone();
         Arrays.sort(sortedArray);
 
-        System.out.println(Arrays.toString(reconstructedArray));
-        System.out.println(Arrays.toString(sortedArray));
+        System.out.println("Reconstructed array: " + Arrays.toString(reconstructedArray));
+        System.out.println("Sorted array: " + Arrays.toString(sortedArray));
 
+        // Порівняння відновленого масиву з відсортованим
         return Arrays.equals(reconstructedArray, sortedArray);
     }
+
 
     private static void countBit(int[] nums) {
         System.out.println("Original array: " + Arrays.toString(nums));
