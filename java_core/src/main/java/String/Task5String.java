@@ -13,7 +13,7 @@ public class Task5String {
         System.out.println(Arrays.toString(toInteger(nums)));
     }
 
-    public static boolean canConstruct(String ransomNote, String magazine) {
+    private static boolean canConstruct(String ransomNote, String magazine) {
         HashMap<Character, Integer> map = new HashMap<>();
 
         for (int i = 0; i < magazine.length(); i++) {

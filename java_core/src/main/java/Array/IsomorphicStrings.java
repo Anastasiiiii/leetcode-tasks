@@ -12,7 +12,7 @@ public class IsomorphicStrings {
       All occurrences of a character must be replaced with another character while preserving the order of characters.
       No two characters may map to the same character, but a character may map to itself.*/
 
-    public static boolean isIsomorphic(String s, String t) {
+    private static boolean isIsomorphic(String s, String t) {
         int[] arr_s = new int [128];
         int[] arr_t = new int [128];
 

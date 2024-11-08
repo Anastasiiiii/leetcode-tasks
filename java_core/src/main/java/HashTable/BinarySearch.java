@@ -28,7 +28,7 @@ public class BinarySearch {
         return -1;
     }
 
-    static int metaBinarySearch(int[] numbers, int target){
+    private static int metaBinarySearch(int[] numbers, int target){
         int n = numbers.length;
         int intervalSize = n;
 

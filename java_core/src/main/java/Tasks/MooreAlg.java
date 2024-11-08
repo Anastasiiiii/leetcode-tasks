@@ -6,12 +6,13 @@ public class MooreAlg {
         int maj = majorityElement(nums);
         System.out.println(maj);
     }
-    private static int majorityElement(int[] nums){
+
+    private static int majorityElement(int[] nums) {
         int count = 0;
         Integer k = null; //current candidate to think as a majority element
 
         for (int num : nums) {
-            if(count == 0){
+            if (count == 0) {
                 k = num;
             }
             count += (num == k) ? 1 : -1;

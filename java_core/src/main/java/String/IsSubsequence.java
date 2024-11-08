@@ -37,7 +37,6 @@ public class IsSubsequence {
             if (index == -1) {
                 return false;
             }
-
             // Move to the next position in `t` after the found character
             index++;
         }

@@ -7,11 +7,11 @@ public class Array {
     private int count;
 
     public Array(int length) {
-       items = new int[length];
+        items = new int[length];
     }
 
     public void insert(int item) {
-        if(count == items.length){
+        if (count == items.length) {
             int[] newItems = new int[items.length * 2];
             for (int i = 0; i < items.length; i++) {
                 newItems[i] = items[i];
@@ -20,6 +20,7 @@ public class Array {
         }
         items[count++] = item;
     }
+
     public void delete(int index) {
 
         if (index < 0 || index >= this.items.length) {
@@ -27,14 +28,14 @@ public class Array {
         }
 
         items = IntStream.range(0, this.items.length)
-                .filter(i->i != index)
+                .filter(i -> i != index)
                 .map(i -> this.items[i])
                 .toArray();
         count--;
     }
 
-    public void print(){
-        for(int i=0; i<count; i++){
+    public void print() {
+        for (int i = 0; i < count; i++) {
             System.out.println(items[i]);
         }
     }

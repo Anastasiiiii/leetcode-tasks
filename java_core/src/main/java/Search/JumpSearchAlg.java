@@ -29,9 +29,9 @@ public class JumpSearchAlg {
         }
         return -1;
     }
-    private static  int lenearSearch(int[] numbers, int numberToFind, int first, int last){
 
-        while(first <= last) {
+    private static int lenearSearch(int[] numbers, int numberToFind, int first, int last) {
+        while (first <= last) {
             int currentNumber = numbers[first];
             if (currentNumber == numberToFind) {
                 return first;

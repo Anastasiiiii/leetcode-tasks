@@ -1,7 +1,7 @@
 package Tasks;
 
 public class StacksvsQueues {
-    public static void main (String[] args){
+    public static void main(String[] args) {
         //STACK
         Stack<Integer> stack = new Stack<Integer>(6);
         stack.insertElement(5);
@@ -12,7 +12,6 @@ public class StacksvsQueues {
         System.out.println("The deleted element is: " + stack.deleteElement());
         stack.stackShow();
 
-
         //QUEUE
         Queue queue = new Queue(5);
         queue.insertElement(5);
@@ -22,6 +21,5 @@ public class StacksvsQueues {
         queue.queueShow();
         System.out.println("The deleted element is: " + queue.deleteElement());
         queue.queueShow();
-
     }
 }

@@ -12,7 +12,7 @@ public class Anagram {
     }
 
     /*Given two strings s and t, return true if t is an anagram of s, and false otherwise.*/
-    public static boolean isAnagram(String s, String t) {
+    private static boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) {
             return false;
         }

@@ -6,7 +6,7 @@ public class Palindrome {
         System.out.println(isPalindrome(s));
     }
 
-    public static boolean isPalindrome(String s) {
+    private static boolean isPalindrome(String s) {
         String lowerCaseString = s.toLowerCase();
         //Replace all non-alphanumeric characters
         String newString = lowerCaseString.replaceAll("[^a-zA-Z0-9]", "");
@@ -14,11 +14,11 @@ public class Palindrome {
         int left = 0;
         int right = subArr.length - 1;
         while (left < right) {
-            if(subArr[left] != subArr[right]) {
+            if (subArr[left] != subArr[right]) {
                 return false;
             } else {
                 left++;
-                right --;
+                right--;
             }
         }
         System.out.println(newString);

@@ -125,7 +125,7 @@ public class IfSorted {
 //        return Arrays.equals(reconstructedArray, sortedArray);
 //    }
 
-    public static boolean canSortArray(int[] nums) {
+    private static boolean canSortArray(int[] nums) {
         // Перевірка, чи масив вже відсортований
         boolean isSorted = true;
         for (int i = 0; i < nums.length - 1; i++) {

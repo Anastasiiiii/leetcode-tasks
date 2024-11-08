@@ -1,7 +1,7 @@
 package Sorting;
 
 public class ShellSort {
-    public static void shellSort(int[] array) {
+    private static void shellSort(int[] array) {
         int n = array.length;
 
         // Start with a large gap, then reduce the gap
@@ -36,7 +36,7 @@ public class ShellSort {
     }
 
     // Helper method to print the array
-    public static void printArray(int[] array) {
+    private static void printArray(int[] array) {
         for (int value : array) {
             System.out.print(value + " ");
         }

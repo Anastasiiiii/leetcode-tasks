@@ -33,7 +33,7 @@ public class WordPattern {
     Each unique word in s maps to exactly one letter in pattern.
     No two letters map to the same word, and no two words map to the same letter.*/
 
-    public static boolean wordPattern(String pattern, String s) {
+    private static boolean wordPattern(String pattern, String s) {
         Map<Character, String> map = new HashMap<>();
         ArrayList<String> words = new ArrayList<>();
         String[] s_arr = s.split(" ");
@@ -65,7 +65,7 @@ public class WordPattern {
     }
 
     //The second option
-    public static boolean wordPatternTwoHashMaps(String pattern, String s){
+    private static boolean wordPatternTwoHashMaps(String pattern, String s){
         String[] words = s.split(" ");
 
         if(pattern.length() != words.length){

@@ -13,7 +13,7 @@ public class JumpGame {
         System.out.println(jump(nums3));
     }
 
-    public static boolean canJump(int[] nums) {
+    private static boolean canJump(int[] nums) {
         int last = nums.length - 1;
         int farthest = 0;  // Track the farthest position you can reach
 
@@ -28,7 +28,7 @@ public class JumpGame {
         return false;
     }
 
-    public static int jump(int[] nums) {
+    private static int jump(int[] nums) {
         int last = nums.length - 1;
         int farthest = 0;  // Track the farthest position you can reach
 

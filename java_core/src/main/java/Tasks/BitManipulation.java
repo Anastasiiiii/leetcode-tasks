@@ -4,29 +4,29 @@ import java.math.BigInteger;
 
 public class BitManipulation {
     public static void main(String[] args) {
-       String a = "1010";
-       String b = "1011";
+        String a = "1010";
+        String b = "1011";
 
-       String m = "10110";
-       String n = "10011";
+        String m = "10110";
+        String n = "10011";
 
-       String k = "110";
-       String l = "101";
-       System.out.println(addBinaryInt(a, b));
-       System.out.println(addBinary(a, b));
-       System.out.println(addBinaryManually(a, b));
-       System.out.println(subtractionBinary(m, n));
-       System.out.println(multiplicationBinary(m, n));
-       System.out.println(multiplicationBinary(k, l));
+        String k = "110";
+        String l = "101";
+        System.out.println(addBinaryInt(a, b));
+        System.out.println(addBinary(a, b));
+        System.out.println(addBinaryManually(a, b));
+        System.out.println(subtractionBinary(m, n));
+        System.out.println(multiplicationBinary(m, n));
+        System.out.println(multiplicationBinary(k, l));
     }
 
-    public static String addBinaryInt(String a, String b) {
+    private static String addBinaryInt(String a, String b) {
         int sum = Integer.parseInt(a, 2) + Integer.parseInt(b, 2);
         String result = Integer.toBinaryString(sum);
         return result;
     }
 
-    public static String addBinary(String a, String b) {
+    private static String addBinary(String a, String b) {
         BigInteger bigA = new BigInteger(a, 2);
         BigInteger bigB = new BigInteger(b, 2);
 
@@ -36,7 +36,7 @@ public class BitManipulation {
         return result;
     }
 
-    public static String addBinaryManually(String a, String b) {
+    private static String addBinaryManually(String a, String b) {
         StringBuilder result = new StringBuilder();
 
         int i = a.length() - 1;
@@ -44,15 +44,15 @@ public class BitManipulation {
         int ost = 0; //перенос при додаванні
 
         //Поки є цифри в обох рядках або є перенос
-        while(i >= 0 || j >= 0 || ost == 1){
+        while (i >= 0 || j >= 0 || ost == 1) {
             int sum = ost;
 
-            if(i >= 0){
+            if (i >= 0) {
                 sum += a.charAt(i) - '0';
                 i--;
             }
 
-            if (j >= 0){
+            if (j >= 0) {
                 sum += b.charAt(j) - '0';
                 j--;
             }
@@ -65,19 +65,19 @@ public class BitManipulation {
         return result.reverse().toString();
     }
 
-    public static String subtractionBinary(String a, String b){
+    private static String subtractionBinary(String a, String b) {
         StringBuilder result = new StringBuilder();
         int i = a.length() - 1;
         int j = b.length() - 1;
         int borrow = 0; //позика
 
         while (i >= 0 || j >= 0) {
-            int bitA = (i >=0) ? a.charAt(i) - '0' : 0;
+            int bitA = (i >= 0) ? a.charAt(i) - '0' : 0;
             int bitB = (j >= 0) ? b.charAt(j) - '0' : 0;
 
             int difference = bitA - bitB - borrow;
 
-            if(difference < 0) {
+            if (difference < 0) {
                 difference += 2;
                 borrow = 1;
             } else {
@@ -93,7 +93,7 @@ public class BitManipulation {
         return result.reverse().toString();
     }
 
-    public static String multiplicationBinary(String a, String b) {
+    private static String multiplicationBinary(String a, String b) {
         StringBuilder result = new StringBuilder("0");
 
         int bLength = b.length();

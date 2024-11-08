@@ -22,18 +22,18 @@ public class ValidParentheses {
     //Open brackets must be closed in the correct order.
     //Every close bracket has a corresponding open bracket of the same type.
 
-    public static boolean isValid(String s){
+    private static boolean isValid(String s) {
         HashMap<Character, Character> parenthesesPares = new HashMap<>();
         parenthesesPares.put('(', ')');
         parenthesesPares.put('{', '}');
         parenthesesPares.put('[', ']');
 
         Stack<Character> stack = new Stack<>();
-        for(char c : s.toCharArray()){
-            if(parenthesesPares.containsKey(c)){
+        for (char c : s.toCharArray()) {
+            if (parenthesesPares.containsKey(c)) {
                 stack.push(c);
                 System.out.println(stack);
-            } else if(parenthesesPares.containsValue(c)){
+            } else if (parenthesesPares.containsValue(c)) {
                 if (stack.isEmpty() || parenthesesPares.get(stack.pop()) != c) {
                     return false;
                 }

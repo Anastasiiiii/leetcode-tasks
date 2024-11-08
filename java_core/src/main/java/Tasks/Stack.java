@@ -15,17 +15,17 @@ public class Stack<C> {
         size = 0;
     }
 
-    public boolean isFull(){
-        return size==capacity;
+    public boolean isFull() {
+        return size == capacity;
     }
 
-    public boolean isEmpty(){
-        return size==0;
+    public boolean isEmpty() {
+        return size == 0;
     }
 
 
-    public void insertElement(int data){
-        if(isFull()){
+    public void insertElement(int data) {
+        if (isFull()) {
             System.out.println("The stack is full");
         }
         stack[first] = data;
@@ -34,7 +34,7 @@ public class Stack<C> {
     }
 
     public int deleteElement() {
-        if(isEmpty()){
+        if (isEmpty()) {
             System.out.println("The stack is empty");
             return Integer.MIN_VALUE;
         }
@@ -47,7 +47,7 @@ public class Stack<C> {
     }
 
     public void stackShow() {
-        if(isEmpty()){
+        if (isEmpty()) {
             System.out.println("The stack is empty");
         }
         System.out.println(Arrays.toString(stack));

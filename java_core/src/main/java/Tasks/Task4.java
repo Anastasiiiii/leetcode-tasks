@@ -79,7 +79,7 @@ public class Task4 {
 
     }
 
-    public static int removeElement(int[] nums, int val) {
+    private static int removeElement(int[] nums, int val) {
         int k = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != val) {
@@ -97,7 +97,7 @@ public class Task4 {
     The remaining elements of nums are not important as well as the size of nums. Return k.
      */
 
-    public static int removeDuplicates(int[] nums) {
+    private static int removeDuplicates(int[] nums) {
         int k = 0;
         int limit = nums.length - 1;
         int[] temp = new int[nums.length];
@@ -119,7 +119,7 @@ public class Task4 {
     Return k after placing the final result in the first k slots of nums.
     Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
      */
-    public static int removeTwiceDuplicates(int[] nums) {
+    private static int removeTwiceDuplicates(int[] nums) {
         if (nums.length <= 2) {
             return nums.length;
         }
@@ -138,7 +138,7 @@ public class Task4 {
         return k;
     }
 
-    public static int majorityElement(int[] nums) {
+    private static int majorityElement(int[] nums) {
         ArrayList<Integer> list = new ArrayList<>();
         int el = nums[0];
         int count = 1;
@@ -176,7 +176,7 @@ public class Task4 {
         return el;
     }
 
-    public static int maxProfit(int[] prices) {
+    private static int maxProfit(int[] prices) {
         ArrayList<Integer> list = new ArrayList<>();
         if (prices.length > 1) {
             int count = prices.length - 1;
@@ -210,7 +210,7 @@ public class Task4 {
     You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
     Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
      */
-    public static int maximumProfit(int[] prices) {
+    private static int maximumProfit(int[] prices) {
         if (prices.length == 0) {
             return 0;
         }
@@ -232,16 +232,16 @@ public class Task4 {
     }
 
     /*
-    *Given a sorted array of distinct integers and a target value, return the index if the target is found.
-    * If not, return the index where it would be if it were inserted in order.
-    * O(n) - time; O(1) - space
-    * */
-    public static int searchInsert(int[] nums, int target) {
+     *Given a sorted array of distinct integers and a target value, return the index if the target is found.
+     * If not, return the index where it would be if it were inserted in order.
+     * O(n) - time; O(1) - space
+     * */
+    private static int searchInsert(int[] nums, int target) {
         int limit = nums.length - 1;
         for (int i = 0; i < limit; i++) {
             if (nums[i] == target) {
                 return i;
-            } else if(target > nums[i] && target < nums[i+1]) {
+            } else if (target > nums[i] && target < nums[i + 1]) {
                 return i + 1;
             } else if (target > nums[limit]) {
                 return limit + 1;
@@ -249,20 +249,21 @@ public class Task4 {
         }
         return -1;
     }
+
     //O(log n) - binary search
-    public static int searchInsertBinary(int[] nums, int target) {
+    private static int searchInsertBinary(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
 
-        while(left <= right) {
-            int mid = left + (right - left) /2;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
 
-            if(nums[mid] == target) {
+            if (nums[mid] == target) {
                 return mid;
-            } else if(nums[mid] < target) {
+            } else if (nums[mid] < target) {
                 left = mid + 1;
             } else {
-                right = mid-1;
+                right = mid - 1;
             }
         }
         return left;

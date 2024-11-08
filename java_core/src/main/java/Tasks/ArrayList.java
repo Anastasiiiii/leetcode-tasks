@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 class ArrayListVsArrays {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String[] friendsArray = new String[4];
         String[] a = {"A", "B", "C", "D"};
 
@@ -36,7 +36,7 @@ class ArrayListVsArrays {
         namesLinkedList.add("John");
         namesLinkedList.add("Mary");
         namesLinkedList.add("Kate");
-        namesLinkedList.add(1,"Jerry");
+        namesLinkedList.add(1, "Jerry");
 
         System.out.println(namesLinkedList.get(2));
         System.out.println(namesLinkedList);

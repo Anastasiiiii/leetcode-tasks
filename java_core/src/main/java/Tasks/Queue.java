@@ -18,15 +18,15 @@ public class Queue {
     }
 
     public boolean isFull() {
-        return size==capacity;
+        return size == capacity;
     }
 
     public boolean isEmpty() {
-        return size==0;
+        return size == 0;
     }
 
     public void insertElement(int element) {
-        if(isFull()) {
+        if (isFull()) {
             System.out.println("The queue is full");
             return;
         }
@@ -34,8 +34,9 @@ public class Queue {
         queue[last] = element;
         size++;
     }
+
     public int deleteElement() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             System.out.println("The queue is empty");
             return Integer.MIN_VALUE;
         }
@@ -46,8 +47,8 @@ public class Queue {
         return element;
     }
 
-    public void queueShow(){
-        if(isEmpty()){
+    public void queueShow() {
+        if (isEmpty()) {
             System.out.println("The queue is empty");
             return;
         }

@@ -17,7 +17,7 @@ public class PairOfNumbers {
         System.out.println(Arrays.toString(findPairOfNumbers(nums, sum)));
         System.out.println(Arrays.toString(findPairOfNumbers(nums2, sum2)));
         System.out.println(Arrays.toString(findPairOfNumbers(nums3, sum3)));
-        System.out.println(Arrays.toString(findPairOfNumbers(nums4, sum4 )));
+        System.out.println(Arrays.toString(findPairOfNumbers(nums4, sum4)));
 
         System.out.println("The other method");
         System.out.println(hasPairWithSum(nums, sum));
@@ -29,20 +29,22 @@ public class PairOfNumbers {
         System.out.println(secondPairCheckWithSum(nums, sum));
         System.out.println(secondPairCheckWithSum(nums2, sum2));
         System.out.println(secondPairCheckWithSum(nums3, sum3));
-        System.out.println(secondPairCheckWithSum( nums4, sum4));
+        System.out.println(secondPairCheckWithSum(nums4, sum4));
     }
-    public static int[] findPairOfNumbers(int[] nums, int sum){
+
+    private static int[] findPairOfNumbers(int[] nums, int sum) {
         for (int i = 0; i < nums.length; i++) {
             for (int j = 1; j < nums.length; j++) {
                 int current = nums[i] + nums[j];
-                if(current == sum){
-                    return new int[] {nums[i], nums[j]};
+                if (current == sum) {
+                    return new int[]{nums[i], nums[j]};
                 }
             }
         }
-        return new int[] {-1, -1};
+        return new int[]{-1, -1};
     }
-    public static boolean hasPairWithSum(int[] nums, int sum) {
+
+    private static boolean hasPairWithSum(int[] nums, int sum) {
         int first = 0;
         int last = nums.length - 1;
         while (last > first) {
@@ -60,11 +62,11 @@ public class PairOfNumbers {
         return false;
     }
 
-    public static boolean secondPairCheckWithSum(int[] nums, int sum){
+    private static boolean secondPairCheckWithSum(int[] nums, int sum) {
         Set<Integer> numbers = new HashSet<>();
         for (int num : nums) {
             int target = sum - num;
-            if (numbers.contains(target)){
+            if (numbers.contains(target)) {
                 System.out.println("The answers are: " + num + " , " + target);
                 return true;
             } else {

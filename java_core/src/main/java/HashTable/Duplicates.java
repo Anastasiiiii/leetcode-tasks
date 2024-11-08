@@ -39,7 +39,7 @@ public class Duplicates {
         System.out.println(Math.random());
     }
 
-    public static boolean containsDuplicate(int[] nums) {
+    private static boolean containsDuplicate(int[] nums) {
         Arrays.sort(nums);
         int i = 0;
         while(i < nums.length-1){
@@ -51,7 +51,7 @@ public class Duplicates {
         return false;
     }
 
-    public static boolean containsNearbyDuplicate(int[] nums, int k) {
+    private static boolean containsNearbyDuplicate(int[] nums, int k) {
         Set<Integer> set = new HashSet<>();
         int i = 0;
         int j = i + 1;
@@ -70,7 +70,7 @@ public class Duplicates {
         System.out.println(set);
         return false;
     }
-    public static boolean containsNearbyDuplicate2(int[] nums, int k) {
+    private static boolean containsNearbyDuplicate2(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for(int i = 0; i < nums.length; i++){
@@ -94,7 +94,7 @@ public class Duplicates {
     abs(nums[i] - nums[j]) <= valueDiff, and Return true if such pair exists or false otherwise.
      */
 
-    public static boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
+    private static boolean containsNearbyAlmostDuplicate(int[] nums, int indexDiff, int valueDiff) {
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for(int i = 0; i < nums.length; i++){
@@ -116,7 +116,7 @@ public class Duplicates {
         return false;
     }
 
-    public static boolean containsNearbyAlmostDuplicate2(int[] nums, int indexDiff, int valueDiff) {
+    private static boolean containsNearbyAlmostDuplicate2(int[] nums, int indexDiff, int valueDiff) {
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 if (i != j) {

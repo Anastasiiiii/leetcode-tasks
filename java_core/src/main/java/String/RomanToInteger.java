@@ -13,7 +13,7 @@ public class RomanToInteger {
         System.out.println(romanToInt(s3));
     }
 
-    public static int romanToInt(String s){
+    private static int romanToInt(String s) {
         HashMap<String, Integer> table = new HashMap<>();
         ArrayList<String> stringParts = new ArrayList<>();
         int num = 0;
@@ -34,11 +34,11 @@ public class RomanToInteger {
 
         //checking if the string has romans combinations; adding combinations or separate parts into the arrayList
         for (int i = 0; i < s.length(); i++) {
-            if(i+1 < s.length()) {
-                String combination = s.substring(i, i+2);
+            if (i + 1 < s.length()) {
+                String combination = s.substring(i, i + 2);
                 if (combination.equals("IV") || combination.equals("IX") ||
-                    combination.equals("XL") || combination.equals("XC") ||
-                    combination.equals("CD") || combination.equals("CM")) {
+                        combination.equals("XL") || combination.equals("XC") ||
+                        combination.equals("CD") || combination.equals("CM")) {
                     stringParts.add(combination);
                     i++;
                     continue;
@@ -49,7 +49,7 @@ public class RomanToInteger {
         System.out.println(stringParts);
 
         //convert into integer
-        for(String part : stringParts) {
+        for (String part : stringParts) {
             if (table.containsKey(part)) {
                 num += table.get(part);
             } else {
