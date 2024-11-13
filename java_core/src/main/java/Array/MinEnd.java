@@ -20,13 +20,14 @@ public class MinEnd {
         System.out.println("************************");
         System.out.println(minEnd(n2, x2));
     }
+
     private static long minEnd(int n, int x) {
         long m = x;
 
-        for(int i = 1; i < n; i++){
-            m = (m | x) +1;
+        for (int i = 1; i < n; i++) {
+            m = (m | x) + 1;
 
-            while((m & x) != x) {
+            while ((m & x) != x) {
                 m++;
             }
         }
