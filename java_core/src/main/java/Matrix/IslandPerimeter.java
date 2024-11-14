@@ -1,4 +1,4 @@
-package Tasks;
+package Matrix;
 
 public class IslandPerimeter {
     private int islandPerimeter(int[][] grid) {
