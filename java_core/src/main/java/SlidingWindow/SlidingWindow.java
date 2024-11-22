@@ -18,6 +18,7 @@ public class SlidingWindow {
             return -1;
         }
 
+
         //Compute sum of first window of size k
         int max_sum = 0;
         for(int i = 0; i < k; i++){
