@@ -58,17 +58,17 @@ public class SecondMaxInt {
         arr[j] = temp;
     }
 
-    private static Integer findSecondMaximum(int[] nums){
+    private static Integer findSecondMaximum(int[] nums) {
         // TODO: Find the second largest number in nums
-        if(nums.length == 0){
+        if (nums.length == 0) {
             return null;
         }
 
         Integer maximum = null;
         Integer secondMax = null;
 
-        for(int num : nums){
-            if(maximum == null || num > maximum){
+        for (int num : nums) {
+            if (maximum == null || num > maximum) {
                 secondMax = maximum;
                 maximum = num;
             } else if ((secondMax == null || num > secondMax) && num < maximum) {
