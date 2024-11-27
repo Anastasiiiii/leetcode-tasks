@@ -4,6 +4,7 @@ public class SecondMaxInt {
     public static void main(String[] args) {
         int[] arr = {1, 3, 4, 6, 7};
         System.out.println(secondMax(arr));
+        System.out.println(findSecondMaximum(arr));
     }
 
 
@@ -55,6 +56,26 @@ public class SecondMaxInt {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+    }
+
+    private static Integer findSecondMaximum(int[] nums){
+        // TODO: Find the second largest number in nums
+        if(nums.length == 0){
+            return null;
+        }
+
+        Integer maximum = null;
+        Integer secondMax = null;
+
+        for(int num : nums){
+            if(maximum == null || num > maximum){
+                secondMax = maximum;
+                maximum = num;
+            } else if ((secondMax == null || num > secondMax) && num < maximum) {
+                secondMax = num;
+            }
+        }
+        return secondMax;
     }
 
 }
