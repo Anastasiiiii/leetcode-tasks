@@ -16,6 +16,8 @@ public class ReverseString {
         System.out.println((int) 'b');
         System.out.println((int) 'Y');
         System.out.println((int) 'y');
+
+        System.out.println(recursionReverseString("hello"));
     }
 
     private static String reverseString(String s) {
@@ -59,5 +61,18 @@ public class ReverseString {
             }
         }
         return newString.toString();
+    }
+
+    private static String recursionReverseString(String s){
+        int index = s.length() - 1;
+        return helper(s, index);
+    }
+
+    private static String helper(String s, int index){
+        if(index < 0){
+            return "";
+        }
+
+        return s.charAt(index) + helper(s, index - 1);
     }
 }
