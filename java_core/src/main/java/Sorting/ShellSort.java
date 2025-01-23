@@ -1,5 +1,8 @@
 package Sorting;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class ShellSort {
     private static void shellSort(int[] array) {
         int n = array.length;
@@ -23,6 +26,26 @@ public class ShellSort {
         }
     }
 
+    private static void shellSortForList(List<Integer> list) {
+        if(list == null || list.size() <= 1){
+            return;
+        }
+        int n = list.size();
+
+        for (int gap = n / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < n; i++) {
+                int temp = list.get(i);
+
+                int j;
+                for (j = i; j >= gap && list.get(j - gap) > temp; j -= gap) {
+                    list.set(j, list.get(j - gap));
+                }
+
+                list.set(j, temp);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] array = {12, 34, 54, 2, 3};
 
@@ -33,6 +56,10 @@ public class ShellSort {
 
         System.out.println("\nSorted Array:");
         printArray(array);
+
+        List<Integer> list = Arrays.asList(2, 1, 5, 7, 3, 8, 9);
+        shellSortForList(list);
+        System.out.println(list);
     }
 
     // Helper method to print the array
