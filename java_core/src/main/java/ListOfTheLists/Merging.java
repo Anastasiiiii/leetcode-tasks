@@ -15,37 +15,33 @@ public class Merging {
 
     public static List<Integer> mergeNSortedLists(List<List<Integer>> lists) {
         // TODO: implement the function to merge sorted lists
-        if (lists == null || lists.size() <= 1) {
-            return null;
-        }
+        List<Integer> mergedList = new ArrayList<>();
+        int[] pointers = new int[lists.size()];
 
-        ArrayList<Integer> mergedList = new ArrayList<>();
-        while(true){
-            for (List<Integer> list : lists) {
-                if (!list.isEmpty()) {
-                    int s = findTheSmallest(list);
-                    mergedList.add(s);
-                    list.remove(s);
+        while (true) {
+            int minValue = Integer.MAX_VALUE;
+            int minIndex = -1;
+
+            // Find the minimum value among the current pointers
+            for (int i = 0; i < lists.size(); i++) {
+                if (pointers[i] < lists.get(i).size() && lists.get(i).get(pointers[i]) < minValue) {
+                    minValue = lists.get(i).get(pointers[i]);
+                    minIndex = i;
                 }
             }
+
+            // If no minimum index is found, all lists are exhausted
+            if (minIndex == -1) {
+                break;
+            }
+
+            // Add the smallest element to the merged list
+            mergedList.add(minValue);
+
+            // Move the pointer forward in the list from which the smallest element was taken
+            pointers[minIndex]++;
         }
 
         return mergedList;
-    }
-
-    private static int findTheSmallest(List<Integer> list){
-        if(list == null || list.size() <= 1){
-            return -1;
-        }
-
-        int minValue = list.get(0);
-
-        for(int i = 1; i < list.size(); i++){
-            if(list.get(i) < minValue){
-                minValue = list.get(i);
-            }
-        }
-
-        return minValue;
     }
 }
