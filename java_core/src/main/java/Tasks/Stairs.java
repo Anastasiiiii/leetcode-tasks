@@ -4,16 +4,17 @@ public class Stairs {
     public static void main(String[] args) {
         System.out.println(climbStairs(3));
         System.out.println(climbStairs(4));
-        System.out.println(climbStairs(5));
+        System.out.println(climbStairs(6));
     }
 
     private static int climbStairs(int n) {
-        int sum = 0; //завжди буде метод з 1
-        while (n > 1) {
-            n = n - 2;
-            sum++;
+        int[] ways = new int[n+1];
+        ways[0] = 1;
+        ways[1] = 1;
+
+        for (int i = 2; i <= n; i++) {
+            ways[i] = ways[i-1] + ways[i-2];
         }
-        sum = 2 * sum + 1;
-        return sum;
+        return ways[n];
     }
 }
