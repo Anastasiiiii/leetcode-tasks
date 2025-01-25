@@ -16,6 +16,7 @@ public class InsertionSort {
             for (int j = 0; j <= i; j++) {
                 if(arr[i] < arr[j]){
                     swapMethod(arr, i, j);
+                    System.out.println("i = : " + i + " j = : " + j + " Array: " + Arrays.toString(arr));
                 }
             }
         }
