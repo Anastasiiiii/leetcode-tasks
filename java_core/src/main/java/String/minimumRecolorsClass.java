@@ -11,10 +11,13 @@ public class minimumRecolorsClass {
         String blocks2 = "BWWWBB";
         int k2 = 6;
 
+        String blocks3 = "WWBBBWBBBBBWWBWWWB";
+        int k3 = 16;
 
         System.out.println(minimumRecolors(blocks, k));
         System.out.println(minimumRecolors(blocks1, k1));
         System.out.println(minimumRecolors(blocks2, k2));
+        System.out.println(minimumRecolors(blocks3, k3));
     }
 
     private static int minimumRecolors(String blocks, int k) {
@@ -27,7 +30,7 @@ public class minimumRecolorsClass {
             min = blocks.length() - blocks.replace("W", "").length();
         } else {
 
-            while (right < blocks.length()) {
+            while (right <= blocks.length()) {
                 String subStr = blocks.substring(left, right);
                 int count = subStr.length() - subStr.replace("W", "").length();
 
