@@ -10,7 +10,6 @@ public class Domino {
         System.out.println(numEquivDominoPairs(dominoes));
     }
 
-    //int key = 10 * Math.min(a, b) + Math.max(a, b);
     private static int numEquivDominoPairs(int[][] dominoes) {
         Map<Integer, Integer> count = new HashMap<>();
         int result = 0;
