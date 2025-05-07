@@ -9,7 +9,7 @@ Welcome to my repository of solved LeetCode problems. This is where I track my p
 
 1. [Easy/Medium problems](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java)
 
-2. Hard problems (soon)
+2. [Hard problems](https://github.com/Anastasiiiii/leetcode-tasks/tree/main/hard_tasks)
 
 ---
 
@@ -23,13 +23,14 @@ Welcome to my repository of solved LeetCode problems. This is where I track my p
 | [BinaryTree](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java/BinaryTree) | [Math](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java/Math) | [SearchingAlgorithm](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java/Search) |
 | [SlidingWindowAlgorithm](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java/SlidingWindow) | [SortingAlgorithm](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java/Sorting) | [TwoPointersAlgorithm](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java/TwoPointers) |
 | [DynamicProgramming](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java/DynamicProgramming) | [GameTasks](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java/gameTasks) | [Sum](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java/Sum) |
-| [OtherTasks](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java/Tasks) |  |  |
+|[BFS](https://github.com/Anastasiiiii/leetcode-tasks/tree/main/easy_medium_tasks/src/main/java/BFS) | [OtherTasks](https://github.com/Anastasiiiii/LeetCode_tasks/tree/main/easy_medium_tasks/src/main/java/Tasks) |  |  
 
 ---
 
 ## ✅ Goals
 
+- [x] Reach 100+ total problems solved  
 - [x] Solve 50+ easy problems  
 - [ ] Solve 50+ medium problems  
 - [ ] Solve 10+ hard problems  
-- [ ] Reach 100+ total problems solved  
+
